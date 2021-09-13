@@ -1,4 +1,5 @@
-class Armes {
+class Weapon {
+
     constructor(name, bonus, prix) {
         this.name = name;
         this.bonus = bonus;
@@ -6,5 +7,8 @@ class Armes {
     }
 }
 
-class Armures extends Armes {
+class Armor extends Weapon {
+    constructor(name, bonus, prix) {
+        super(name, bonus, prix);
+    }
 }

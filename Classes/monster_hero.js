@@ -15,13 +15,13 @@ class Monster {
 class Hero extends Monster{
 
     //Init
-    constructor(name, hp, xp, gold, atk, def, str, end, arme, armure) {
+    constructor(name, hp, xp, gold, atk, def, str, end, weapon, armor) {
         super(name, hp, gold, atk);
         this.xp = xp;
         this.def = def;
         this.str = str;
         this.end = end;
-        this.arme = arme;
-        this.armure = armure;
+        this.weapon = weapon;
+        this.armor = armor;
     }
 }
