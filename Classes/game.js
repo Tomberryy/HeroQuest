@@ -7,13 +7,42 @@ class Game {
 
     }
 
-    changeState(idState) {
+    changeState(state, event) {
 
     }
 
     refreshFight(hero, monster) {
 
     }
+
+    heroAttack(hero) {
+
+    }
+
+    heroFlee() {
+
+    }
+
+    monsterAttack(monster) {
+
+    }
+
+    showShop(npc) {
+
+    }
+
+    buyWeapon() {
+
+    }
+
+    buyArmor() {
+
+    }
+
+    leaveShop() {
+        
+    }
+
 
 
 }
