@@ -11,14 +11,7 @@
     <script src="./Classes/game.js"></script>
     <script src="./Classes/monster_hero.js"></script>
     <script src="./Classes/NPC.js"></script>
-    <script>
-        var heros = null;
-        var weapons = [];
-        var armors = [];
-        var npcs = [];
-        var monsters = null;
-        var game = new Game;
-    </script>
+    <script src="./Classes/init.js"></script>
 </head>
 <body onload="game.init();">
     <div id="container">
@@ -37,9 +30,9 @@
                 <div id="monsterStats"></div>
             </div>
             <div id="fightButtons" class="eventButtons">
-                <button type="button" id="heroAtk" onclick="game.heroAction(1, heros, monsters);">Attack!</button>
-                <button type="button" id="heroDef" onclick="game.heroAction(2);">Defend!</button>
-                <button type="button" id="heroFlee" onclick="game.heroAction(3);">Flee!</button>
+                <button type="button" id="heroAtk" onclick="game.heroAction(1, heros, currentMonster);">Attack!</button>
+                <button type="button" id="heroDef" onclick="game.heroAction(2, heros, currentMonster);">Defend!</button>
+                <button type="button" id="heroFlee" onclick="game.heroAction(3, heros, currentMonster);">Flee!</button>
             </div>
             <div id="shopButtons" class="eventButtons">
                 <button type="button" id="buyWeapo">Buy weapon</button>

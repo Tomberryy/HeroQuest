@@ -1,7 +1,7 @@
-class npc {
-    constructor(name, arme, armure) {
+class Npc {
+    constructor(name, weapon, armor) {
         this.name = name;
-        this.arme = arme;
-        this.armure = armure;
+        this.weapon = weapon;
+        this.armor = armor;
     }
 }
