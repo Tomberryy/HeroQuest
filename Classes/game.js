@@ -10,12 +10,15 @@ class Game {
 
 
     init() {
-        this.monsters[0] = new Monster("Goblin", 10, 10, 10);
+
+        this.monsters[0] = new Monster("Goblin", 10, 10, 10, "");
         this.monsters[1] = new Monster("Orc", 20, 12, 12);
         this.monsters[2] = new Monster("Undead", 15, 2, 15);
+
         this.weapons[0] = new Weapon("Club", 3, 5);
         this.weapons[1] = new Weapon("Sword", 5, 10);
         this.weapons[2] = new Weapon("Axe", 8, 15);
+
         this.armors[0] = new Armor("Leather armor", 2, 5);
         this.armors[1] = new Armor("Chainmail", 5, 10);
         this.armors[2] = new Armor("Plate armor", 10, 25);
@@ -37,7 +40,7 @@ class Game {
         if (heroName !== "") {
 
             //Create new hero in global variable "heros"
-            this.heros = new Hero(heroName, 15, 0, 10, 5, 5, 1, 1, 0, 0, 0);
+            this.heros = new Hero(heroName, 150, 0, 10, 5, 5, 1, 1, 0, 0, 0);
             //Change game state to two (2 = combat or shop)
             this.changeState(2);
 
