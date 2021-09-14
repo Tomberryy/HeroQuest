@@ -272,12 +272,12 @@ class Game {
     showButtons(event) {
         switch (event) {
             case 1 : //Case 1 shows shop
-                document.getElementById("shopButtons").style.display = "block";
+                document.getElementById("shopButtons").style.display = "flex";
                 document.getElementById("fightButtons").style.display = "none";
                 break;
             case 2 : //Case 1 shows combat
                 document.getElementById("shopButtons").style.display = "none";
-                document.getElementById("fightButtons").style.display = "block";
+                document.getElementById("fightButtons").style.display = "flex";
                 break;
             
         }

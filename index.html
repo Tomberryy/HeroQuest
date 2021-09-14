@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
     <script src="./Classes/armes_armures.js"></script>
     <script src="./Classes/game.js"></script>
@@ -15,38 +15,43 @@
 </head>
 <body>
     <div id="container">
-        <div id="menuScene" class="scene">
-            <div class="menuBox">
+        <div id="menuScene" class="scene frame">
+            <img src="images/dragon.png" width="300px" id="dragon">
+            <div class="menuBox square">
                 <h1>HeroQuest</h1>
                 <input type="text" id="heroName" placeholder="Hero's name">
                 <button type="button" id="startGame" onclick="game.newGame();">Start!</button>
             </div>
         </div>
-        <div id="playScene" class="scene">
+        <div id="playScene" class="scene frame">
             <div id="playBox">
                 <div id="charStats"></div>
                 <div id="charPic"></div>
                 <div id="monsterPic"></div>
                 <div id="monsterStats"></div>
             </div>
+            <div><img src="images/samurai.png" width="140px" id="img_hero"><img src="images/monster.png" width="120px" id="img_monster"></div>
+        
             <div id="fightButtons" class="eventButtons">
-                <button type="button" id="heroAtk" onclick="game.heroAction(1);">Attack!</button>
-                <button type="button" id="heroDef" onclick="game.heroAction(2);">Defend!</button>
-                <button type="button" id="heroFlee" onclick="game.heroAction(3);">Flee!</button>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="heroAttack" onclick="game.heroAction(1);">Attack!</div></div></div></div>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="buyArm" onclick="game.heroAction(2);">Defend!</div></div></div></div>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="leaveShop" onclick="game.heroAction(3);">Flee!</div></div></div></div>
             </div>
+
             <div id="shopButtons" class="eventButtons">
-                <button type="button" id="buyWeapon" onclick="game.buyWeapon();">Buy weapon</button>
-                <button type="button" id="buyArmor" onclick="game.buyArmor();">Buy armor</button>
-                <button type="button" id="leaveShop" onclick="game.leaveShop();">Leave</button>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="buyWeapon" onclick="game.buyWeapon();">Buy Weapon</div></div></div></div>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="buyArm" onclick="game.buyArmor();">Buy armor</div></div></div></div>
+                <div class="button"><div class="outer"><div class="height"><div class="inner" id="leaveShop" onclick="game.leaveShop();">Leave</div></div></div></div>
             </div>
         </div>
-        <div id="scoreScene" class="scene">
+        <div id="scoreScene" class="scene frame">
             <div class="menuBox">
                 <h1 id="resultGame"><h1>
                 <h1 id="scoreGame"><h1>
             </div>
         </div>
     </div>
+
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </html>
