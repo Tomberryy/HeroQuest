@@ -13,7 +13,7 @@
     <script src="./Classes/NPC.js"></script>
     <script src="./Classes/init.js"></script>
 </head>
-<body onload="game.init();">
+<body>
     <div id="container">
         <div id="menuScene" class="scene">
             <div class="menuBox">
@@ -30,13 +30,13 @@
                 <div id="monsterStats"></div>
             </div>
             <div id="fightButtons" class="eventButtons">
-                <button type="button" id="heroAtk" onclick="game.heroAction(1, heros, currentMonster);">Attack!</button>
-                <button type="button" id="heroDef" onclick="game.heroAction(2, heros, currentMonster);">Defend!</button>
-                <button type="button" id="heroFlee" onclick="game.heroAction(3, heros, currentMonster);">Flee!</button>
+                <button type="button" id="heroAtk" onclick="game.heroAction(1);">Attack!</button>
+                <button type="button" id="heroDef" onclick="game.heroAction(2);">Defend!</button>
+                <button type="button" id="heroFlee" onclick="game.heroAction(3);">Flee!</button>
             </div>
             <div id="shopButtons" class="eventButtons">
-                <button type="button" id="buyWeapo">Buy weapon</button>
-                <button type="button" id="buyArm">Buy armor</button>
+                <button type="button" id="buyWeapon" onclick="game.buyWeapon();">Buy weapon</button>
+                <button type="button" id="buyArmor" onclick="game.buyArmor();">Buy armor</button>
                 <button type="button" id="leaveShop">Leave</button>
             </div>
         </div>
