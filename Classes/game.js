@@ -31,10 +31,10 @@ class Game {
         this.monsters[10] = new Monster("Balrog", 35, 15, 25, "./images/Monster/4/balrog.png");
         this.monsters[11] = new Monster("Ice Dragon", 45, 15, 20, "./images/Monster/4/dragonice.png");
 
-        this.monsters[12] = new Monster("Master Orc", 20, 0, 20, "./images/Monster/boss/masterorc.png");
-        this.monsters[12] = new Monster("Ragnaros", 30, 0, 30, "./images/Monster/boss/ragnaros.png");
-        this.monsters[13] = new Monster("Illidan", 40, 0, 40, "./images/Monster/boss/illidan.png");
-        this.monsters[14] = new Monster("Lich King", 50, 0, 50, "lichking.png");
+        this.monsters[12] = new Monster("Master Orc", 80, 0, 60, "./images/Monster/Boss/masterorc.png");
+        this.monsters[12] = new Monster("Ragnaros", 80, 0, 70, "./images/Monster/Boss/ragnaros.png");
+        this.monsters[13] = new Monster("Illidan", 90, 0, 70, "./images/Monster/Boss/illidan.png");
+        this.monsters[14] = new Monster("Lich King", 100, 0, 90, "./images/Monster/Boss/lichking.png");
 
         //WEAPONS Init
         this.weapons[0] = new Weapon("Club", 3, 5);
@@ -55,7 +55,7 @@ class Game {
         this.armors[2] = new Armor("Chainmail gold armor", 10, 15);
         this.armors[3] = new Armor("Plate armor", 15, 25);
         this.armors[4] = new Armor("Plate gold armor", 20, 40);
-        this.armors[5] = new Armor("Plate magic armor", 30, 50);
+        this.armors[5] = new Armor("Plate magic armor", 25, 50);
 
     }
 
