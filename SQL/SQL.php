@@ -1,29 +1,38 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+header('Access-Control-Allow-Origin: *');
 
 
-    $server = "127.0.0.1";
-    $login = "root";
-    $pass = "";
-    $db = "heroquest";
+    // Vérifie le content type de la variable $_SERVER pour savoir que methode a reçu le serveur
+    $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+    $requestMethod = isset($_SERVER["REQUEST_METHOD"]) ? trim($_SERVER["REQUEST_METHOD"]) : '';
 
-    $conn = new mysqli($server, $login, $pass, $db);
+    if ( $requestMethod === 'GET') {
+    
+        $server = "127.0.0.1";
+        $login = "root";
+        $pass = "";
+        $db = "heroquest";
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        $conn = new mysqli($server, $login, $pass, $db);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // echo "Connected successfully";
+
+        $sql = "SELECT * FROM hero WHERE id=1";
+        $hero = $conn->query($sql)->fetch_object();
+
+        $result = [
+            'hero' => $hero
+        ];
+
+        echo json_encode($result);
+
+
+        $conn->close();
     }
-echo "Connected successfully";
-
-$sql = "SELECT * FROM hero";
-$result = $conn->query($sql)->fetch_all();
-
-echo json_encode($result);
-
-
-$conn->close();
 ?>
