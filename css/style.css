@@ -3,25 +3,52 @@ body, div, html {
     padding : 0;
 }
 
+.espace{
+    float: left;
+    width: 60px;
+    margin-left: 5px;
+}
+
+#heroName{
+    display: block;
+    margin: auto;
+}
+
+#startGame{
+    position: absolute;
+    left: 37%;
+    border-radius: 100%;
+
+    background-color:red;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 #dragon{
     position: absolute;
 	left: 750px;
 }
 
-.bottomInfo {
-	position : absolute;
-	top : 450px;
-	width : 140px;
-	height : 140px;
-	background-color: black;
-	color : white;
-}
-#div_popo{
-	left: 850px;
+#img_hero{
+	padding-left: 20px;
 }
 
-#div_inv{
-	left: 50px;
+#img_monster{
+	padding-left: 700px;
+}
+
+#chinese{
+    writing-mode: vertical-lr;
+    margin-top: 250px;
+    margin-left: 700px;
 }
 
 .frame {
@@ -47,7 +74,7 @@ body, div, html {
 }
 
 .menuBox {
-    position : absolute;
+    position : absolute; 
     width : 300px;
     height : 200px;
     background-color: black;
@@ -65,6 +92,7 @@ body, div, html {
     height : auto;
 }
 
+
 #charStats {
     background-color: chartreuse;
     width : 150px;
@@ -75,6 +103,34 @@ body, div, html {
     border-width: 10px;
     border-color: #666 #1c87c9;
 }
+
+#boxGauche {
+    background-color: chartreuse;
+    width : 150px;
+    height : 140px;
+    margin-left : 20px;
+    margin-top : 10px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #666 #1c87c9;
+}
+
+#boxDroite {
+    background-color: chartreuse;
+    width : 150px;
+    height : 140px;
+    margin-left : 620px;
+    margin-top : 10px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #666 #1c87c9;
+}
+
+#newBoxes{
+    display: flex;
+    flex-direction: row;	
+}
+
 #monsterStats {
     background-color: chartreuse;
     width : 150px;
@@ -96,12 +152,6 @@ body, div, html {
     border-width: 10px;
     border-color: #666 #1c87c9;
 }
-
-#monPic {
-	max-width: 100%;
-	max-height: 100%;
-}
-
 #charPic {
     width : 200px;
     height : 200px;
@@ -220,4 +270,24 @@ body, div, html {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1d7d12), color-stop(100%,#4fd342)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #1d7d12 0%,#4fd342 100%); /* Chrome10+,Safari5.1+ */
 	background: linear-gradient(top, #1d7d12 0%,#4fd342 100%); /* W3C */
+}
+
+h1{
+    text-align: center;
+}
+
+#monPic {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#charPic {
+    width : 200px;
+    height : 200px;
+    background-color: coral;
+    margin-left : 60px;
+    margin-top : 100px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: #666 #1c87c9;
 }

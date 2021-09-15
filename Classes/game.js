@@ -128,6 +128,7 @@ class Game {
     refresh(event) {
         //Get hero stats div
         let heroStats = document.getElementById('charStats');
+        let str=this.heros.name; 
         switch (event) {
             case 1:
                 let monsterPic = document.getElementById('monPic');
@@ -135,20 +136,21 @@ class Game {
                 //Get monster stat div
                 let monsterStats = document.getElementById('monsterStats');
                 //Refresh hero stats
-                heroStats.innerHTML = "<p>" + this.heros.name +
-                    "<br/>HP : " + this.heros.hp +
-                    "<br/>Gold : " + this.heros.gold +
-                    "<br/>xp : " + this.heros.xp +
-                    "<br/>ATK : " + this.heros.atk +
-                    "<br/>DEF : " + this.heros.def +
-                    "<br/>str : " + this.heros.str +
-                    "<br/>end : " + this.heros.end +
-                    "<br/>score : " + this.heros.score + "</p>";
+                heroStats.innerHTML = "<br><div class='espace'>" + str.toUpperCase() + "</div><p>" +
+                    "<br/><div class='espace'>HP</div>" + " : " + String(this.heros.hp).padStart(2, '0') +
+                    "<br/><div class='espace'>GOLD</div>" + " : " + String(this.heros.gold).padStart(2, '0') +
+                    "<br/><div class='espace'>XP</div>" + " : " + String(this.heros.xp).padStart(2, '0') +
+                    "<br/><div class='espace'>ATK</div>" + " : " + String(this.heros.atk).padStart(2, '0') +
+                    "<br/><div class='espace'>DEF</div>" + " : " + String(this.heros.def).padStart(2, '0') +
+                    "<br/><div class='espace'>STR</div>" + " : " + String(this.heros.str).padStart(2, '0') +
+                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') + 
+                    "<br/><div class='espace'>SCORE</div>" + " : " + String(this.heros.score).padStart(2, '0') + "</p>";
 
                 //Refresh monster stats
-                monsterStats.innerHTML = "<p>" + this.currentMonster.name +
-                    "<br/>HP : " + this.currentMonster.hp +
-                    "<br/>ATK : " + this.currentMonster.atk + "</p>";
+                    let str2=this.currentMonster.name
+                monsterStats.innerHTML = "<p><div class='espace'>" + str2.toUpperCase() + "</div><br><br>" + 
+                    "<br/><div class='espace'>HP : </div>" + this.currentMonster.hp +
+                    "<br/><div class='espace'>ATK : </div>" + this.currentMonster.atk + "</p>";
                 break;
             case 2:
                 //Get shop window
@@ -156,23 +158,23 @@ class Game {
 
 
                 //Refresh hero stats
-                heroStats.innerHTML = "<p>" + this.heros.name +
-                    "<br/>HP : " + this.heros.hp +
-                    "<br/>Gold : " + this.heros.gold +
-                    "<br/>xp : " + this.heros.xp +
-                    "<br/>ATK : " + this.heros.atk +
-                    "<br/>DEF : " + this.heros.def +
-                    "<br/>str : " + this.heros.str +
-                    "<br/>end : " + this.heros.end +
-                    "<br/>score : " + this.heros.score + "</p>";
+                heroStats.innerHTML = "<br><div class='espace'>" + str.toUpperCase() + "</div><p>" +
+                    "<br/><div class='espace' id='initial'>HP</div>" + " : " + String(this.heros.hp).padStart(2, '0') +
+                    "<br/><div class='espace'>GOLD</div>" + " : " + String(this.heros.gold).padStart(2, '0') +
+                    "<br/><div class='espace'>XP</div>" + " : " + String(this.heros.xp).padStart(2, '0') +
+                    "<br/><div class='espace'>ATK</div>" + " : " + String(this.heros.atk).padStart(2, '0') +
+                    "<br/><div class='espace'>DEF</div>" + " : " + String(this.heros.def).padStart(2, '0') +
+                    "<br/><div class='espace'>STR</div>" + " : " + String(this.heros.str).padStart(2, '0') +
+                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') + 
+                    "<br/><div class='espace'>SCORE</div>" + " : " + String(this.heros.score).padStart(2, '0') + "</p>";
                 //Display shop content
-                shopInv.innerHTML = this.npcs.name + "<br/><br/>" +
-                    this.weapons[this.npcs.weapon].name + "<br/>+" +
-                    this.weapons[this.npcs.weapon].bonus + "atk<br/>Cost : " +
-                    this.weapons[this.npcs.weapon].prix + " gold <br/><br/>" +
-                    this.armors[this.npcs.armor].name + "<br/>+" +
-                    this.armors[this.npcs.armor].bonus + "def<br/>Cost : " +
-                    this.armors[this.npcs.armor].prix + " gold";
+                shopInv.innerHTML = 
+                "<br/><div class='espace'></div>" +  String(this.weapons[this.npcs.weapon].name).padStart(2, '0') +
+                "<br/><div class='espace'>ATK</div>" + " : " + String(this.weapons[this.npcs.weapon].bonus).padStart(2, '0') + 
+                "<br/><div class='espace'>Price</div>" + " : " + String(this.weapons[this.npcs.weapon].prix).padStart(2, '0') + 
+                "<br/><div class='espace'></div>" + String(this.armors[this.npcs.armor].name).padStart(2, '0') +  
+                "<br/><div class='espace'>DEF</div>" + " : " + String(this.armors[this.npcs.armor].bonus).padStart(2, '0') +
+                "<br/><div class='espace'>price</div>" + " : " + String(this.armors[this.npcs.armor].prix).padStart(2, '0');
                 break;
             case 3:
                 //Get hero inventory div
