@@ -175,6 +175,7 @@ class Game {
                 "<br/><div class='espace'></div>" + String(this.armors[this.npcs.armor].name).padStart(2, '0') +  
                 "<br/><div class='espace'>DEF</div>" + " : " + String(this.armors[this.npcs.armor].bonus).padStart(2, '0') +
                 "<br/><div class='espace'>price</div>" + " : " + String(this.armors[this.npcs.armor].prix).padStart(2, '0');
+                document.getElementById('monPic').src="./images/shopkeeper.png";
                 break;
             case 3:
                 //Get hero inventory div

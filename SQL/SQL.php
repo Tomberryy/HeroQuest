@@ -23,13 +23,15 @@ header('Access-Control-Allow-Origin: *');
 
         // echo "Connected successfully";
 
-        $sql = "SELECT * FROM hero WHERE id=1";
+        $sql = "SELECT * FROM armes WHERE id=1";
         $hero = $conn->query($sql)->fetch_object();
 
         $result = [
             'hero' => $hero
         ];
 
+        $sql = "SELECT * FROM hero WHERE id=1";
+        $hero = $conn->query($sql)->fetch_object();
         echo json_encode($result);
 
 
