@@ -413,7 +413,9 @@ randShop(max) {
     return Math.floor(Math.random() * (max + 1));
 };
 
-    async getInit() {
+
+//Get data from SQL
+async getInit() {
     const init = await axios.get('http://127.0.0.1/edsa-HeroQuest/SQL/SQL.php?getInit=1');
     console.log(init)
 }
