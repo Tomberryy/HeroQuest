@@ -32,9 +32,9 @@ class Game {
         this.monsters[11] = new Monster("Ice Dragon", 45, 15, 20, "./images/Monster/4/dragonice.png");
 
         this.monsters[12] = new Monster("Master Orc", 80, 0, 60, "./images/Monster/Boss/masterorc.png");
-        this.monsters[12] = new Monster("Ragnaros", 80, 0, 70, "./images/Monster/Boss/ragnaros.png");
-        this.monsters[13] = new Monster("Illidan", 90, 0, 70, "./images/Monster/Boss/illidan.png");
-        this.monsters[14] = new Monster("Lich King", 100, 0, 90, "./images/Monster/Boss/lichking.png");
+        this.monsters[13] = new Monster("Ragnaros", 80, 0, 70, "./images/Monster/Boss/ragnaros.png");
+        this.monsters[14] = new Monster("Illidan", 90, 0, 70, "./images/Monster/Boss/illidan.png");
+        this.monsters[15] = new Monster("Lich King", 100, 0, 90, "./images/Monster/Boss/lichking.png");
 
         //WEAPONS Init
         this.weapons[0] = new Weapon("Club", 3, 5);
@@ -217,7 +217,7 @@ class Game {
 
                     } else { //Hero is dead
                         this.endGame(1);
-                        break;
+                        return;
                     }
                 } else { //Monster is dead
                     if (this.isBoss == false) {
@@ -250,7 +250,9 @@ class Game {
                         }
                     } else {
                         this.heros.score += 20;
+                        console.log("allo");
                         this.endGame(2);
+                        break;
                     }
 
                 } break;
@@ -367,7 +369,7 @@ class Game {
             //New monster
             this.currentMonster = { ...this.monsters[this.rand(2)] };
         } else {
-            this.currentMonster = { ...this.monsters[this.rand(3) + 1] };
+            this.currentMonster = { ...this.monsters[15]};
             this.isBoss = true;
         }
         //New fight
@@ -398,10 +400,12 @@ class Game {
                 this.changeState(3);
                 document.getElementById('resultGame').innerText = "Défaite!";
                 document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
+                break;
             case 2:
                 this.changeState(3);
                 document.getElementById('resultGame').innerText = "Victoire!";
                 document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
+                break;
         }
     }
 
