@@ -128,7 +128,7 @@ class Game {
     refresh(event) {
         //Get hero stats div
         let heroStats = document.getElementById('charStats');
-        let str=this.heros.name; 
+        let str = this.heros.name;
         switch (event) {
             case 1:
                 let monsterPic = document.getElementById('monPic');
@@ -143,12 +143,12 @@ class Game {
                     "<br/><div class='espace'>ATK</div>" + " : " + String(this.heros.atk).padStart(2, '0') +
                     "<br/><div class='espace'>DEF</div>" + " : " + String(this.heros.def).padStart(2, '0') +
                     "<br/><div class='espace'>STR</div>" + " : " + String(this.heros.str).padStart(2, '0') +
-                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') + 
+                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') +
                     "<br/><div class='espace'>SCORE</div>" + " : " + String(this.heros.score).padStart(2, '0') + "</p>";
 
                 //Refresh monster stats
-                    let str2=this.currentMonster.name
-                monsterStats.innerHTML = "<p><div class='espace'>" + str2.toUpperCase() + "</div><br><br>" + 
+                let str2 = this.currentMonster.name
+                monsterStats.innerHTML = "<p><div class='espace'>" + str2.toUpperCase() + "</div><br><br>" +
                     "<br/><div class='espace'>HP : </div>" + this.currentMonster.hp +
                     "<br/><div class='espace'>ATK : </div>" + this.currentMonster.atk + "</p>";
                 break;
@@ -165,17 +165,17 @@ class Game {
                     "<br/><div class='espace'>ATK</div>" + " : " + String(this.heros.atk).padStart(2, '0') +
                     "<br/><div class='espace'>DEF</div>" + " : " + String(this.heros.def).padStart(2, '0') +
                     "<br/><div class='espace'>STR</div>" + " : " + String(this.heros.str).padStart(2, '0') +
-                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') + 
+                    "<br/><div class='espace'>END</div>" + " : " + String(this.heros.end).padStart(2, '0') +
                     "<br/><div class='espace'>SCORE</div>" + " : " + String(this.heros.score).padStart(2, '0') + "</p>";
                 //Display shop content
-                shopInv.innerHTML = 
-                "<br/><div class='espace'></div>" +  String(this.weapons[this.npcs.weapon].name).padStart(2, '0') +
-                "<br/><div class='espace'>ATK</div>" + " : " + String(this.weapons[this.npcs.weapon].bonus).padStart(2, '0') + 
-                "<br/><div class='espace'>Price</div>" + " : " + String(this.weapons[this.npcs.weapon].prix).padStart(2, '0') + 
-                "<br/><div class='espace'></div>" + String(this.armors[this.npcs.armor].name).padStart(2, '0') +  
-                "<br/><div class='espace'>DEF</div>" + " : " + String(this.armors[this.npcs.armor].bonus).padStart(2, '0') +
-                "<br/><div class='espace'>price</div>" + " : " + String(this.armors[this.npcs.armor].prix).padStart(2, '0');
-                document.getElementById('monPic').src="./images/shopkeeper.png";
+                shopInv.innerHTML =
+                    "<br/><div class='espace'></div>" + String(this.weapons[this.npcs.weapon].name).padStart(2, '0') +
+                    "<br/><div class='espace'>ATK</div>" + " : " + String(this.weapons[this.npcs.weapon].bonus).padStart(2, '0') +
+                    "<br/><div class='espace'>Price</div>" + " : " + String(this.weapons[this.npcs.weapon].prix).padStart(2, '0') +
+                    "<br/><div class='espace'></div>" + String(this.armors[this.npcs.armor].name).padStart(2, '0') +
+                    "<br/><div class='espace'>DEF</div>" + " : " + String(this.armors[this.npcs.armor].bonus).padStart(2, '0') +
+                    "<br/><div class='espace'>price</div>" + " : " + String(this.armors[this.npcs.armor].prix).padStart(2, '0');
+                document.getElementById('monPic').src = "./images/shopkeeper.png";
                 break;
             case 3:
                 //Get hero inventory div
@@ -217,6 +217,7 @@ class Game {
 
                     } else { //Hero is dead
                         this.endGame(1);
+                        break;
                     }
                 } else { //Monster is dead
                     if (this.isBoss == false) {
@@ -252,173 +253,173 @@ class Game {
                         this.endGame(2);
                     }
 
-                }break;
+                } break;
             case 2: //Hero defends, monster attacks
 
-        //Maths for monster damage
-        damageM = this.currentMonster.atk - this.heros.def - this.heros.end - this.armors[this.heros.armor].bonus;
+                //Maths for monster damage
+                damageM = this.currentMonster.atk - this.heros.def - this.heros.end - this.armors[this.heros.armor].bonus;
 
-        //The hero defends
-        damageM = Math.floor(damageM / 2);
+                //The hero defends
+                damageM = Math.floor(damageM / 2);
 
-        //If the hero doesn't get killed by next swing
-        if (this.isDead(this.heros, damageM)) {
+                //If the hero doesn't get killed by next swing
+                if (this.isDead(this.heros, damageM)) {
 
-            //Lower hero HP
-            this.heros.hp = this.heros.hp - damageM;
-            //Refresh fight values
-            this.refresh(1);
+                    //Lower hero HP
+                    this.heros.hp = this.heros.hp - damageM;
+                    //Refresh fight values
+                    this.refresh(1);
+                } else {
+
+                }
+                break;
+            case 3: //3 = hero flees
+                //1 out of 3 events is a shop
+                if (this.eventCount % 3 !== 0) {
+                    //Remove score
+                    this.heros.score -= 5;
+                    //If the hero doesn't get killed by next swing
+                    if (this.isDead(this.heros, damageM)) {
+                        //Lower hero HP for fleeing
+                        this.heros.hp = this.heros.hp - 10;
+
+                    } else { //Hero is dead
+                        this.endGame(1);
+                        return;
+                    }
+                    //New event
+                    this.eventCount++;
+                    //New monster
+                    this.currentMonster = { ...this.monsters[this.rand(2)] };
+                    //New fight
+                    this.refresh(1);
+
+                } else { //Is a shop
+                    //Remove score
+                    this.heros.score -= 5;
+                    //If the hero doesn't get killed by next swing
+                    if (this.isDead(this.heros, damageM)) {
+                        //Lower hero HP for fleeing
+                        this.heros.hp = this.heros.hp - 10;
+
+                    } else { //Hero is dead
+                        this.endGame(1);
+                        return;
+                    }
+                    this.eventCount = 0;
+                    //New shopkeeper, items are random
+                    this.npcs = new Npc("Joe", this.randShop(this.weapons.length - 1), this.randShop(this.armors.length - 1));
+                    //Refresh shop display
+                    this.refresh(2);
+                    //Show shop buttons
+                    this.showButtons(1);
+                }
+                break;
+        }
+    }
+
+    //function returns false if the person would die from swing
+    //Else true
+    isDead(person, dmg) {
+        if (person.hp - dmg <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //Called when the buy weapon button is pressed in shop
+    buyWeapon() {
+        if (this.heros.gold >= this.weapons[this.npcs.weapon].prix) {
+            //Removegold
+            this.heros.gold = this.heros.gold - this.weapons[this.npcs.weapon].prix;
+            //Hero gets weapon
+            this.heros.weapon = this.npcs.weapon;
+            //refresh shop / inventory
+            this.refresh(2);
+            this.refresh(3);
         } else {
 
         }
-        break;
-            case 3: //3 = hero flees
-        //1 out of 3 events is a shop
-        if (this.eventCount % 3 !== 0) {
-            //Remove score
-            this.heros.score -= 5;
-            //If the hero doesn't get killed by next swing
-            if (this.isDead(this.heros, damageM)) {
-                //Lower hero HP for fleeing
-                this.heros.hp = this.heros.hp - 10;
+    }
 
-            } else { //Hero is dead
-                this.endGame(1);
-                return;
-            }
-            //New event
-            this.eventCount++;
+    //Called when the buy armor button is pressed in shop
+    buyArmor() {
+        if (this.heros.gold >= this.armors[this.npcs.armor].prix) {
+            //Removegold
+            this.heros.gold = this.heros.gold - this.armors[this.npcs.armor].prix;
+            //Hero gets weapon
+            this.heros.armor = this.npcs.armor;
+            //refresh shop / inventory
+            this.refresh(2);
+            this.refresh(3);
+        } else {
+
+        }
+    }
+
+    leaveShop() {
+        //New event
+        this.eventCount++;
+        if (this.difficulty !== 9) { //if difficulty isn't the boss stage
+            //Increase difficulty
+            this.difficulty += 3;
             //New monster
             this.currentMonster = { ...this.monsters[this.rand(2)] };
-            //New fight
-            this.refresh(1);
-
-        } else { //Is a shop
-            //Remove score
-            this.heros.score -= 5;
-            //If the hero doesn't get killed by next swing
-            if (this.isDead(this.heros, damageM)) {
-                //Lower hero HP for fleeing
-                this.heros.hp = this.heros.hp - 10;
-
-            } else { //Hero is dead
-                this.endGame(1);
-                return;
-            }
-            this.eventCount = 0;
-            //New shopkeeper, items are random
-            this.npcs = new Npc("Joe", this.randShop(this.weapons.length - 1), this.randShop(this.armors.length - 1));
-            //Refresh shop display
-            this.refresh(2);
-            //Show shop buttons
-            this.showButtons(1);
+        } else {
+            this.currentMonster = { ...this.monsters[this.rand(3) + 1] };
+            this.isBoss = true;
         }
-        break;
+        //New fight
+        this.refresh(1);
+        //Show fight buttons
+        this.showButtons(2);
     }
-}
 
-//function returns false if the person would die from swing
-//Else true
-isDead(person, dmg) {
-    if (person.hp - dmg <= 0) {
-        return false;
-    } else {
-        return true;
-    }
-}
+    //functions shows or hide the shop and combat buttons
+    showButtons(event) {
+        switch (event) {
+            case 1: //Case 1 shows shop
+                document.getElementById("shopButtons").style.display = "flex";
+                document.getElementById("fightButtons").style.display = "none";
+                break;
+            case 2: //Case 1 shows combat
+                document.getElementById("shopButtons").style.display = "none";
+                document.getElementById("fightButtons").style.display = "flex";
+                break;
 
-//Called when the buy weapon button is pressed in shop
-buyWeapon() {
-    if (this.heros.gold >= this.weapons[this.npcs.weapon].prix) {
-        //Removegold
-        this.heros.gold = this.heros.gold - this.weapons[this.npcs.weapon].prix;
-        //Hero gets weapon
-        this.heros.weapon = this.npcs.weapon;
-        //refresh shop / inventory
-        this.refresh(2);
-        this.refresh(3);
-    } else {
-
-    }
-}
-
-//Called when the buy armor button is pressed in shop
-buyArmor() {
-    if (this.heros.gold >= this.armors[this.npcs.armor].prix) {
-        //Removegold
-        this.heros.gold = this.heros.gold - this.armors[this.npcs.armor].prix;
-        //Hero gets weapon
-        this.heros.armor = this.npcs.armor;
-        //refresh shop / inventory
-        this.refresh(2);
-        this.refresh(3);
-    } else {
-
-    }
-}
-
-leaveShop() {
-    //New event
-    this.eventCount++;
-    if (this.difficulty !== 9) { //if difficulty isn't the boss stage
-        //Increase difficulty
-        this.difficulty += 3;
-        //New monster
-        this.currentMonster = { ...this.monsters[this.rand(2)] };
-    } else {
-        this.currentMonster = { ...this.monsters[this.rand(3)] };
-        this.isBoss = true;
-    }
-    //New fight
-    this.refresh(1);
-    //Show fight buttons
-    this.showButtons(2);
-}
-
-//functions shows or hide the shop and combat buttons
-showButtons(event) {
-    switch (event) {
-        case 1: //Case 1 shows shop
-            document.getElementById("shopButtons").style.display = "flex";
-            document.getElementById("fightButtons").style.display = "none";
-            break;
-        case 2: //Case 1 shows combat
-            document.getElementById("shopButtons").style.display = "none";
-            document.getElementById("fightButtons").style.display = "flex";
-            break;
+        }
 
     }
 
-}
-
-endGame(event) {
-    switch (event) {
-        case 1:
-            this.changeState(3);
-            document.getElementById('resultGame').innerText = "Défaite!";
-            document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
-        case 2:
-            this.changeState(3);
-            document.getElementById('resultGame').innerText = "Victoire!";
-            document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
+    endGame(event) {
+        switch (event) {
+            case 1:
+                this.changeState(3);
+                document.getElementById('resultGame').innerText = "Défaite!";
+                document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
+            case 2:
+                this.changeState(3);
+                document.getElementById('resultGame').innerText = "Victoire!";
+                document.getElementById('scoreGame').innerText = "score : " + this.heros.score;
+        }
     }
-}
 
-//Random method with difficulty (For fights)
-rand(max) {
-    return Math.floor(Math.random() * (max + 1) + this.difficulty);
-};
+    //Random method with difficulty (For fights)
+    rand(max) {
+        return Math.floor(Math.random() * (max + 1) + this.difficulty);
+    };
 
-//Random method without difficulty (For shops)
-randShop(max) {
-    return Math.floor(Math.random() * (max + 1));
-};
+    //Random method without difficulty (For shops)
+    randShop(max) {
+        return Math.floor(Math.random() * (max + 1));
+    };
 
 
-//Get data from SQL
-async getInit() {
-    const init = await axios.get('http://127.0.0.1/edsa-HeroQuest/SQL/SQL.php?getInit=1');
-    console.log(init)
-}
+    //Get data from SQL
+    async getInit() {
+        const init = await axios.get('http://127.0.0.1/edsa-HeroQuest/SQL/SQL.php?getInit=1');
+        console.log(init)
+    }
 
 }
